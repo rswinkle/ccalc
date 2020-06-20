@@ -1,0 +1,12 @@
+
+
+
+program -> expr { ';'|'\n' expr }
+expr -> assign_expr
+assign_expr -> add_expr | ID assign_op assign_expr
+add_expr -> mult_expr { '+' | '-' mult_expr }
+mult_expr ->  exp_expr { '*'|'/'|'%' exp_expr }
+exp_expr -> unary_expr { '**' unary_expr }
+unary_expr -> unary+ | unary- | primary_expr
+primary_expr -> '(' expr ')' | ID | INT_LITERAL
+
